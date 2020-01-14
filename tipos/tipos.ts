@@ -80,3 +80,11 @@ function mutiplicar(numA: number, numB: number): number {
 }
 
 console.log(mutiplicar(2.77, 5));
+
+// funcoes como tipos
+let calculo: (x: number, y:number) => number;
+// calculo = digaOi();
+// calculo;
+
+calculo = mutiplicar;
+console.log(calculo(5,6));
