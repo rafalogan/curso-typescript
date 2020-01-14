@@ -2,6 +2,10 @@
 \.idea
 .vscode
 
+# flies
+*.js
+.DS_Store
+
 # Logs
 logs
 *.log
