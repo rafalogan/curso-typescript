@@ -177,3 +177,33 @@ const produto = {
 };
 
 produto.validarProduto();
+
+// Null check
+let altura = 12;
+// altura = null
+
+let alturaOpcional: null | number = 12;
+alturaOpcional = null;
+
+type Contato = {
+  nome: string,
+  tel1: string,
+  tle2: string | null
+}
+
+const contato1: Contato = {
+  nome: 'Fulano',
+  tel1: '9865432',
+  tle2: null
+};
+
+console.log(contato1.nome);
+console.log(contato1.tel1);
+console.log(contato1.tle2);
+
+let podeSerNulo = null; // any
+console.log(podeSerNulo);
+podeSerNulo = 12;
+console.log(podeSerNulo);
+podeSerNulo = 'abc';
+console.log(podeSerNulo);
