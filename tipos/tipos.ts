@@ -153,3 +153,11 @@ let nota: number | string = 10;
 console.log('Minha nota', nota);
 nota = '5';
 console.log('Minha nota', nota);
+
+// checando tipos
+let  valor = 30;
+if (typeof valor === 'number') {
+  console.log('É um Number!')
+} else {
+  console.log(typeof valor)
+}
