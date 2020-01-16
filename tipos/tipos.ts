@@ -207,3 +207,31 @@ podeSerNulo = 12;
 console.log(podeSerNulo);
 podeSerNulo = 'abc';
 console.log(podeSerNulo);
+
+// Desafio
+type Conta = {
+  saldo: number
+  depositar(valor: number): void;
+}
+
+type Correntista = {
+  nome: string,
+  contaBancaria: Conta,
+  contatos: string[]
+}
+
+let contaBancaria: Conta = {
+  saldo: 3456,
+  depositar(valor) {
+    this.saldo +=valor;
+  }
+};
+
+let correntista: Correntista = {
+  nome: 'Ana Silva',
+  contaBancaria,
+  contatos: ['34567890', '98765432']
+};
+
+correntista.contaBancaria.depositar(5000);
+console.log(correntista);
