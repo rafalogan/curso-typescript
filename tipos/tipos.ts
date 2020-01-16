@@ -147,3 +147,9 @@ const funcionario2: Funcionario = {
     return 'Fora do Horário';
   }
 };
+
+// Multiplos tipos unio types
+let nota: number | string = 10;
+console.log('Minha nota', nota);
+nota = '5';
+console.log('Minha nota', nota);
