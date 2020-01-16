@@ -108,4 +108,30 @@ usuario = {
 };
 console.log(usuario);
 
+// Desafio
+/**
+ * Criar um objeto fincionário com:
+ *  - Array de strings com os nomes dos supervisores
+ *  - Função de bater ponto que recebe hora (número) e retorna uma string
+ *    - Ponto normal (<= 8)
+ *    - Fora do horário (> 8)
+ * */
 
+let funcionario: {
+  supervisores: string[],
+  baterPonto: (horas: number) => string
+};
+
+funcionario = {
+  supervisores: ['Ana', 'Fernando'],
+  baterPonto(horario: number) : string {
+    if (horario <= 8 ) return 'Ponto Normal';
+    return 'Fora do Horário';
+  }
+};
+
+console.log(funcionario);
+console.log(funcionario.baterPonto(8));
+console.log(funcionario.baterPonto(9));
+
+// funcionario = {}
