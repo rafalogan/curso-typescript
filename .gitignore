@@ -1,7 +1,7 @@
 # Idea's
 \.idea
 .vscode
-
+\build
 # flies
 *.js
 .DS_Store
