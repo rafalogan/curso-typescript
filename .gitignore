@@ -4,6 +4,7 @@
 \build
 # flies
 *.js
+*.map
 .DS_Store
 
 # Logs
