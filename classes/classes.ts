@@ -71,7 +71,7 @@ class Carro {
 
   }
 
-  private alterarVelocidade(delta: number): number {
+  protected alterarVelocidade(delta: number): number {
     const novaVelocidade = this.velocidadeAtual + delta;
     const velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima;
 
@@ -109,3 +109,54 @@ console.log(carro1.frear());
 //
 // carro1.alterarVelocidade(150);
 // console.log('atual ->', carro1.velocidadeAtual);
+
+class Ferrari extends Carro {
+
+  constructor(modelo: string, velociadaeMaxima: number) {
+    super('Ferrari', modelo, velociadaeMaxima);
+  }
+
+  public acelerar(): number {
+    return this.alterarVelocidade(20);
+  }
+
+  frear(): number {
+    return this.alterarVelocidade(-15);
+  }
+}
+
+const f40 = new Ferrari( 'F40', 324);
+console.log(`${f40.marca} ${f40.modelo}`);
+console.log(f40.acelerar());
+console.log(f40.frear());
+
+// Getters & Setters
+class Pessoa {
+  private _idade: number = 0;
+
+  get idade(): number {
+    return this._idade;
+  }
+
+  set idade(valor: number) {
+    if (valor >= 0 && valor <= 120) this._idade = valor;
+  }
+}
+
+const pessoa1 = new Pessoa;
+pessoa1.idade = 10;
+console.log(pessoa1.idade);
+
+pessoa1.idade = -3;
+console.log(pessoa1);
+
+// Atributos e Métodos estáticos
+class Matematica {
+  static PI: number = 3.1416;
+
+   static areaCirc(raio: number): number {
+    return this.PI * (raio * raio)
+  }
+}
+
+console.log(Matematica.areaCirc(4));
