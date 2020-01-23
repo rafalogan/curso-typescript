@@ -69,11 +69,11 @@ function retornaMeuNome(): string {
 }
 console.log(retornaMeuNome());
 
-function digaOi(): void {
-  console.log('Oi');
-  // return minhaIdade
-}
-digaOi();
+// function digaOi(): void {
+//   console.log('Oi');
+//   // return minhaIdade
+// }
+// digaOi();
 
 function mutiplicar(numA: number, numB: number): number {
   return numA * numB;
