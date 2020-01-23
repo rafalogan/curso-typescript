@@ -155,8 +155,73 @@ class Matematica {
   static PI: number = 3.1416;
 
    static areaCirc(raio: number): number {
-    return this.PI * (raio * raio)
+    return Matematica.PI * (raio * raio)
   }
 }
 
 console.log(Matematica.areaCirc(4));
+
+// Classe abstrata
+abstract class Calculo {
+  protected resultado: number = 0;
+
+  abstract executar(...number: number[]): void;
+
+  getResultado(): number {
+    return this.resultado;
+  }
+}
+
+class Soma extends Calculo {
+  executar(...number: number[]): void {
+    this.resultado = number.reduce((total, atual) => total + atual)
+  }
+}
+
+class Multiplicacao extends Calculo {
+  executar(...number: number[]): void {
+    this.resultado = number.reduce((total, atual) => total * atual)
+  }
+}
+
+const valores = [2, 3, 4, 5];
+
+let c1 = new Soma();
+c1.executar(...valores);
+console.log(c1.getResultado());
+
+c1 = new Multiplicacao();
+c1.executar(...valores);
+console.log(c1.getResultado());
+
+// Construtor privado
+class Unico {
+  private static instance: Unico = new Unico();
+  private constructor() {
+  }
+
+  static getInstance(): Unico {
+    return Unico.instance;
+  }
+
+  agora() {
+    return new Date();
+  }
+}
+
+console.log(Unico.getInstance().agora());
+
+// Somente Leitura;
+class Avião {
+  public readonly modelo: string;
+
+  constructor(modelo: string,
+              public readonly prefixo: string) {
+    this.modelo = modelo;
+  }
+}
+
+const turboHelice = new Avião('Tu-144', 'PT-ABC');
+// turboHelice.modelo = 'DC-08';
+// turboHelice.prefixo = 'RDR-FFD';
+console.log(turboHelice);
