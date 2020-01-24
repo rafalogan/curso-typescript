@@ -94,7 +94,7 @@ const data2 = new Data(7, 12, 2020);
 console.log(new DiferencaEntreDatas(data1, data2).executar());
 
 // Classe Fila
-class Fila<T> {
+class Fila<T extends number | string> {
 	private fila: Array<T>;
 
 	constructor(...args: T[]) {
@@ -131,4 +131,55 @@ console.log(fila.proximo());
 console.log(fila.proximo());
 
 fila.imprimir();
+
+const novaFila = new Fila<number>(1, 2, 3);
+novaFila.imprimir();
+
+// const outaFila  = new Fila<boolean>(true, false);
+// outaFila.imprimir();
+
+// Desafio Generics
+type  Par<KEY, VALUE> = {
+	chave: KEY,
+	valor: VALUE
+};
+
+class Mapa<KEY, VALUE> {
+	itens: Par<KEY, VALUE>[] = new Array<Par<KEY, VALUE>>();
+
+	obter(chave: KEY): Par<KEY, VALUE> | null {
+		const resultado = this.itens
+			.filter(item => item.chave === chave);
+
+		return resultado ? resultado[0] : null;
+	}
+
+	colocar(par: Par<KEY, VALUE>) {
+		const encontrado = this.obter(par.chave);
+		if (encontrado) {
+			encontrado.valor = par.valor
+		} else {
+			this.itens.push(par);
+		}
+	}
+
+	limpar() {
+		this.itens = new Array<Par<KEY, VALUE>>();
+	}
+
+	imprimir() {
+		console.log(this.itens);
+	}
+}
+
+const mapa = new Mapa<number, string>();
+mapa.colocar({ chave: 1, valor: 'Pedro' });
+mapa.colocar({ chave: 2, valor: 'Rebeca' });
+mapa.colocar({ chave: 3, valor: 'Maria' });
+mapa.colocar({ chave: 1, valor: 'Gustavo' });
+
+console.log(mapa.obter(2));
+mapa.imprimir();
+mapa.limpar();
+mapa.imprimir();
 
