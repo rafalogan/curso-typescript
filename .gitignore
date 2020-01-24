@@ -1,11 +1,16 @@
 # Idea's
 \.idea
+**\.idea
 .vscode
 \build
+
 # flies
 *.js
 *.map
 .DS_Store
+
+#exceções
+!gulpfile.*
 
 # Logs
 logs
