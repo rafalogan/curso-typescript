@@ -11,7 +11,7 @@
 
 #exceções
 !gulpfile.*
-
+!webpack.config.js
 # Logs
 logs
 *.log
